@@ -46,4 +46,4 @@ jobs:
 
           echo "" RUNNING TERRAFORM destroy ""
 
-          terraform destroy -auto-approve
+#          terraform destroy -auto-approve

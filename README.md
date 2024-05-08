@@ -1,7 +1,7 @@
 # Terraform template to launch AWS EKS Cluster with the given specifications
 
 <pre>
-o Deploy in US West 2 <br>
+** o Deploy in US West 2 ** <br>
 
 A variable is passed to set the region to "us-west-2" <br>
 

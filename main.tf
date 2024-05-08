@@ -100,6 +100,10 @@ resource "null_resource" "update-kubeconfig-create-namespace" {
     command     = "kubectl create namespace ${var.lastname_namespace}"
   }
 
+  provisioner "local-exec" {
+    command     = "kubectl get namespace ${var.lastname_namespace}"
+  }
+
   depends_on = [
     module.eks  
   ]

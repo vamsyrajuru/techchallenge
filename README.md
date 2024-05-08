@@ -17,6 +17,8 @@ A variable is passed to set the region to lastname <br>
 eks_cluster_name = "rajuru" <br>
 </pre>
 
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/cluster-name.png) <br>
+
 <b> o Kubernetes version 1.27  </b>
 
 <pre>
@@ -24,6 +26,7 @@ A variable is passed to set the version to 1.27 <br>
 eks_cluster_version = "1.27"  <br>
 </pre>
 
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/kubernetes-version.png) <br>
 
 <b> o Create a unique cluster service role for the cluster </b> 
 
@@ -31,6 +34,8 @@ eks_cluster_version = "1.27"  <br>
 A unique cluster service role is created for this cluster. The value is passed through the variable <br>
 eks_iam_role_name  = "rajuru-eks-cluster-role"  <br>
 </pre>
+
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/custom-iam-role.png) <br>
 
 <b> o Resources created should be tagged
 
@@ -50,6 +55,9 @@ The resources are tagged as suggested , The values are passed through the variab
 owner_tag = "APPLICANT_RAJURU_V" <br>
 category_tag = "ENG_ASSESSMENT" <br>
 </pre>
+
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/tags.png) <br>
+
 
 <b> o Other requirements  <br>
 o Node  <br>
@@ -96,8 +104,11 @@ The node group size values, the instance type, AMI type are all passed to the mo
 eks_ami_type = "AL2_ARM_64"  <br>
 lastname_namespace = "rajuru"  <br>
 eks_instance_types = ["c7g.medium", "c7g.large"]  <br>
-
 </pre>
+
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/node-type.png) <br>
+
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/node-group.png) <br>
 
 <b>
 o Namespace  <br>
@@ -126,6 +137,8 @@ resource "null_resource" "update-kubeconfig-create-namespace" { <br>
 } <br>  
 
 </pre>
+
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/public-address-cidr.png) <br>
 
 <b>
 o VPC should be read in from an output  <br>

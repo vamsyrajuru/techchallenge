@@ -97,7 +97,7 @@ resource "null_resource" "update-kubeconfig" {
   }
 
     provisioner "local-exec" {
-    command     = "ls -altr /home/runner/.kube/config"
+    command     = "cat /home/runner/.kube/config > ./kubeconfig"
   }
 
   depends_on = [

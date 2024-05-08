@@ -4,7 +4,7 @@ provider "aws" {
 
 provider "kubernetes" {
 #  config_path    = "~/.kube/config"
-   config_path    = "~/kubeconfig"
+   config_path    = "/tmp/kubeconfig"
 }
 
 ## Defining the S3 backend for the state file locking

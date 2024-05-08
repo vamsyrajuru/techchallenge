@@ -45,5 +45,6 @@ jobs:
           sleep 100
 
           echo "" RUNNING TERRAFORM destroy ""
+          
 
 #          terraform destroy -auto-approve

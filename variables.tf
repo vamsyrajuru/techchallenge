@@ -7,10 +7,11 @@ variable "aws_region" {
 variable "accountid" {
   type        = string
 }
-
+/*
 variable "vpc_id" {
   type        = string
 }
+*/
 
 variable "eks_cluster_name" {
   type        = string

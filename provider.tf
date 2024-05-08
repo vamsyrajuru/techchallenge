@@ -15,6 +15,6 @@ terraform {
     key              	 = "state/terraform.tfstate"
     region         	   = "us-west-2"
     encrypt        	   = true
-    dynamodb_table     = "tf_lockid"
+    dynamodb_table     = "challenge_tf_lock"
   }
 }

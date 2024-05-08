@@ -32,3 +32,5 @@ jobs:
           echo "" RUNNING TERRAFORM INIT ""
 
           terraform init
+
+          terraform plan

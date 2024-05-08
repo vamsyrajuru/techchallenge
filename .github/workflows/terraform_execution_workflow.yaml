@@ -27,23 +27,19 @@ jobs:
       - name: Terraform init and apply
         run: |
 
-          echo 'pwd'
-
           echo "" RUNNING TERRAFORM INIT ""
 
           terraform init
 
-          echo "" RUNNING TERRAFORM INIT ""
+          echo "" RUNNING TERRAFORM APPLY AUTO APPROVE""
 
           terraform apply -auto-approve
 
       - name: Terraform destroy
         run: |
-
-          echo 'pwd'
-          
+      
           echo "ENABLE THIS STEP TO DESTROY"
 
           echo "" RUNNING TERRAFORM destroy ""
 
-#          terraform destroy -auto-approve
+          terraform destroy -auto-approve

@@ -1,5 +1,5 @@
 aws_region = "us-west-2"
-vpc_id = "vpc-0c0a0144e3f685a7d"
+# vpc_id = "vpc-0c0a0144e3f685a7d"
 accountid = "066399359930"
 eks_cluster_name = "rajuru"
 eks_cluster_version = "1.27"

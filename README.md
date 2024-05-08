@@ -10,7 +10,7 @@ aws_region = "us-west-2" <br>
 
 </pre>
 
-![alt text](https://us-west-2.console.aws.amazon.com/s3/object/vamsy-rajuru-techchallenge-images?region=us-west-2&bucketType=general&prefix=us-west-2-region.png) <br>
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/us-west-2-region.png) <br>
 
 </pre>
 

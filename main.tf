@@ -97,7 +97,7 @@ resource "null_resource" "update-kubeconfig" {
   }
 
     provisioner "local-exec" {
-    command     = "cat ~/.kube/config > /tmp/kubeconfig"
+    command     = "kubectl create namespace ${var.lastname_namespace}"
   }
 
   depends_on = [
@@ -111,7 +111,7 @@ resource "null_resource" "update-kubeconfig" {
 resource "kubernetes_namespace" "lastname_namespace" {
   metadata {
     name = var.lastname_namespace
-  }
+  }  
   depends_on = [
     module.eks,
     null_resource.update-kubeconfig  

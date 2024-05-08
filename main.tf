@@ -94,9 +94,13 @@ module "eks" {
 ## The EKS cluster context is being set using null_resource
 
 resource "null_resource" "update-kubeconfig" {
+  triggers = {
+    always_run = timestamp()
+  }
   provisioner "local-exec" {
     command     = "aws eks update-kubeconfig --region ${var.aws_region} --name ${var.eks_cluster_name}"
   }
+
   depends_on = [
     module.eks  
   ]
@@ -110,7 +114,25 @@ resource "kubernetes_namespace" "lastname_namespace" {
     name = var.lastname_namespace
   }
   depends_on = [
+    module.eks,
     null_resource.update-kubeconfig  
   ]
 }
+
+## Private with exception of this CIDR block - 196.182.32.48/32
+## The CIDR value is read from terraform.tfvars
+
+
+resource "null_resource" "update-publicAccessCidrs" {
+  provisioner "local-exec" {
+    command     = "aws eks update-cluster-config --region ${var.aws_region} --name ${var.eks_cluster_name} --resources-vpc-config publicAccessCidrs=196.182.32.48/32"
+  }
+  depends_on = [
+    module.eks,
+    null_resource.update-kubeconfig,
+    kubernetes_namespace.lastname_namespace
+  ]
+}
+
+
 

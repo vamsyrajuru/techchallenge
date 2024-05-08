@@ -24,13 +24,26 @@ jobs:
       - name: Set up Terraform-CLI
         uses: hashicorp/setup-terraform@v2.0.2
 
-      - name: Terraform init, plan and apply
+      - name: Terraform init and apply
         run: |
 
           echo 'pwd'
-          echo "tfpath ${{ github.event.inputs.tfpath }}"
+
           echo "" RUNNING TERRAFORM INIT ""
 
           terraform init
 
-          terraform plan
+          echo "" RUNNING TERRAFORM INIT ""
+
+          terraform apply -auto-approve
+
+      - name: Terraform destroy
+        run: |
+
+          echo 'pwd'
+          
+          sleep 100
+
+          echo "" RUNNING TERRAFORM destroy ""
+
+          terraform destroy -auto-approve

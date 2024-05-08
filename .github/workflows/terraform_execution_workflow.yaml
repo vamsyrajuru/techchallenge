@@ -42,9 +42,9 @@ jobs:
 
           echo 'pwd'
           
-          sleep 100
+          echo "ENABLE THIS STEP TO DESTROY"
 
           echo "" RUNNING TERRAFORM destroy ""
-          
+
 
 #          terraform destroy -auto-approve

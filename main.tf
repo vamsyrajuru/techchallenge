@@ -96,7 +96,6 @@ resource "null_resource" "update-kubeconfig" {
     command     = "aws eks update-kubeconfig --region ${var.aws_region} --name ${var.eks_cluster_name}"
   }
 
-
   depends_on = [
     module.eks  
   ]
@@ -108,6 +107,10 @@ resource "null_resource" "update-kubeconfig" {
 
 
 resource "null_resource" "update-publicAccessCidrs" {
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
   provisioner "local-exec" {
     command     = "aws eks update-cluster-config --region ${var.aws_region} --name ${var.eks_cluster_name} --resources-vpc-config publicAccessCidrs=${var.eks_cluster_endpoint_public_access_cidrs}"
   }

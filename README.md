@@ -138,6 +138,8 @@ resource "null_resource" "update-kubeconfig-create-namespace" { <br>
 
 </pre>
 
+![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/lastname-namespace.png) <br>
+
 ![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/public-address-cidr.png) <br>
 
 <b>

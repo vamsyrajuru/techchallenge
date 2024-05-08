@@ -1,5 +1,6 @@
 # Terraform template to launch AWS EKS Cluster with the given specifications
 
+<pre>
 o Deploy in US West 2 <br>
 o Cluster name should be your last name  <br>
 o Kubernetes version 1.27  <br>
@@ -16,10 +17,13 @@ o Node  <br>
 o Namespace  <br>
     Should have at least one namespace - your last name  <br>
 o Networking -  <br>
-    Private with exception of this CIDR block - 196.182.32.48/  <br>    
+    Private with exception of this CIDR block - 196.182.32.48/32  <br>    
 o VPC should be read in from an output  <br>
+</pre>
 
 ## github actions are enabled to run the workflow everytime a change is pushed to main branch
+
+terraform_execution_workflow.yaml
 
 ## How to initialize the terraform ?
 
@@ -33,3 +37,6 @@ Run "terraform validate"
 
 Run "terraform apply"
 
+## How to destroy terraform project?
+
+Run "terraform destroy"

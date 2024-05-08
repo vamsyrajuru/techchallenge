@@ -87,6 +87,8 @@ module "eks" {
 }
 
 ## The EKS cluster context is being set using null_resource
+## Kubernetes Namespace is being created with name set to lastname
+## The custom value is read from terraform.tfvars 
 
 resource "null_resource" "update-kubeconfig" {
   triggers = {
@@ -102,19 +104,6 @@ resource "null_resource" "update-kubeconfig" {
 
   depends_on = [
     module.eks  
-  ]
-}
-
-## Kubernetes Namespace is being created with name set to lastname
-## The custom value is read from terraform.tfvars 
-
-resource "kubernetes_namespace" "lastname_namespace" {
-  metadata {
-    name = var.lastname_namespace
-  }  
-  depends_on = [
-    module.eks,
-    null_resource.update-kubeconfig  
   ]
 }
 

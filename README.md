@@ -1,19 +1,24 @@
 # Terraform template to launch AWS EKS Cluster with the given specifications
 
 
-<b> o Deploy in US West 2 ** </b>
+<b> o Deploy in US West 2 </b>
 
 <pre>
 A variable is passed to set the region to "us-west-2" <br>
+
 aws_region = "us-west-2" <br>
+
+![alt text](https://us-west-2.console.aws.amazon.com/s3/object/vamsy-rajuru-techchallenge-images?region=us-west-2&bucketType=general&prefix=us-west-2-region.png) <br>
+
 </pre>
 
-o Cluster name should be your last name  <br>
+<b> o Cluster name should be your last name </b>
 
+<pre>
 A variable is passed to set the region to lastname <br>
 
 eks_cluster_name = "rajuru" <br>
-
+</pre>
 
 
 o Kubernetes version 1.27  <br>

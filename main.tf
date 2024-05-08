@@ -49,11 +49,6 @@ module "eks" {
 
   cluster_endpoint_public_access = true
 
-## Private with exception of this CIDR block - 196.182.32.48/32
-## The CIDR value is read from terraform.tfvars
-
-#  cluster_endpoint_public_access_cidrs = var.eks_cluster_endpoint_public_access_cidrs
-  
 ## EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
 
@@ -119,13 +114,14 @@ resource "kubernetes_namespace" "lastname_namespace" {
   ]
 }
 
-## Private with exception of this CIDR block - 196.182.32.48/32
+## Setting the below value after namespace is created. 
+## Private with exception of this CIDR block - 196.182.32.48/32 
 ## The CIDR value is read from terraform.tfvars
 
 
 resource "null_resource" "update-publicAccessCidrs" {
   provisioner "local-exec" {
-    command     = "aws eks update-cluster-config --region ${var.aws_region} --name ${var.eks_cluster_name} --resources-vpc-config publicAccessCidrs=196.182.32.48/32"
+    command     = "aws eks update-cluster-config --region ${var.aws_region} --name ${var.eks_cluster_name} --resources-vpc-config publicAccessCidrs=${var.eks_cluster_endpoint_public_access_cidrs}"
   }
   depends_on = [
     module.eks,

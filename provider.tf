@@ -1,12 +1,12 @@
 provider "aws" {
-#  profile    = "cred_proc"
-  region     = var.aws_region
-  
+  region     = var.aws_region  
 }
 
 provider "kubernetes" {
   config_path    = "~/.kube/config"
 }
+
+## Defining the S3 backend for the state file locking
 
 terraform {
   required_providers {
@@ -14,12 +14,11 @@ terraform {
       source  = "hashicorp/aws"
     }
   }
-
   backend "s3" {
     bucket         	   = "vamsy-rajuru-terraform-state-file-backend"
-    key              	   = "state/terraform.tfstate"
+    key              	 = "state/terraform.tfstate"
     region         	   = "us-west-2"
     encrypt        	   = true
-    dynamodb_table = "tf_lockid"
+    dynamodb_table     = "tf_lockid"
   }
 }

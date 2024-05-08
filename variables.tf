@@ -41,7 +41,7 @@ variable "eks_ami_type" {
 }
 
 variable "eks_cluster_endpoint_public_access_cidrs" {
-  type        = list
+  type        = string
 }
 
 variable "lastname_namespace" {

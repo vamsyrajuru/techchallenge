@@ -118,8 +118,7 @@ resource "null_resource" "update-publicAccessCidrs" {
   }
   depends_on = [
     module.eks,
-    null_resource.update-kubeconfig,
-    kubernetes_namespace.lastname_namespace
+    null_resource.update-kubeconfig
   ]
 }
 

@@ -5,43 +5,41 @@
 
 <pre>
 A variable is passed to set the region to "us-west-2" <br>
-
 aws_region = "us-west-2" <br>
-
 </pre>
 
 ![alt text](https://vamsy-rajuru-techchallenge-images.s3.us-west-2.amazonaws.com/us-west-2-region.png) <br>
-
-</pre>
 
 <b> o Cluster name should be your last name </b>
 
 <pre>
 A variable is passed to set the region to lastname <br>
-
 eks_cluster_name = "rajuru" <br>
 </pre>
 
+<b> o Kubernetes version 1.27  </b>
 
-o Kubernetes version 1.27  <br>
-
+<pre>
 A variable is passed to set the version to 1.27 <br>
-
 eks_cluster_version = "1.27"  <br>
+</pre>
 
 
+<b> o Create a unique cluster service role for the cluster </b> 
 
-o Create a unique cluster service role for the cluster  <br>
-
+<pre>
 A unique cluster service role is created for this cluster. The value is passed through the variable <br>
-
 eks_iam_role_name  = "rajuru-eks-cluster-role"  <br>
+</pre>
 
-o Resources created should be tagged  <br>
+<b> o Resources created should be tagged
 
 o OWNER:APPLICANT_LASTNAME_FIRSTINITIAL  <br>
 o CATEGORY:ENG_ASSESSMENT  <br>
 
+</b>
+
+<pre>
 The resources are tagged as suggested , The values are passed through the variable <br>
 
   tags = {  <br>
@@ -51,14 +49,17 @@ The resources are tagged as suggested , The values are passed through the variab
 
 owner_tag = "APPLICANT_RAJURU_V" <br>
 category_tag = "ENG_ASSESSMENT" <br>
+</pre>
 
-o Other requirements  <br>
+<b> o Other requirements  <br>
 o Node  <br>
     Node group – max size 6, min size 3, desired size 4  <br>
     Nodes should be CPU Optimized  <br>
     Amazon EKS optimized AMI  <br>
     Auto Update  <br>
+</b>
 
+<pre>
 The node group size values, the instance type, AMI type are all passed to the modules and values are passed through the variables <br>
 
 ## EKS Managed Node Group(s) <br>
@@ -96,10 +97,16 @@ eks_ami_type = "AL2_ARM_64"  <br>
 lastname_namespace = "rajuru"  <br>
 eks_instance_types = ["c7g.medium", "c7g.large"]  <br>
 
+</pre>
+
+<b>
 o Namespace  <br>
     Should have at least one namespace - your last name  <br>
 o Networking -  <br>
     Private with exception of this CIDR block - 196.182.32.48/32  <br>    
+</b>
+
+<pre>
 
 Terraform provisioner and local-exec are used to set context and run aws cli and kubectl commands to create name space and set CIDR restrictions <br>  
 
@@ -118,9 +125,13 @@ resource "null_resource" "update-kubeconfig-create-namespace" { <br>
   ] <br>  
 } <br>  
 
+</pre>
 
+<b>
 o VPC should be read in from an output  <br>
+</b>
 
+<pre>
 A vpc_id module is created with logic to read the vpc_id and write to an output. The output vpc_id value is read in the root main.tf  <br>
 
 module "vpc_id" { <br>

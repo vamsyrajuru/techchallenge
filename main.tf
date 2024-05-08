@@ -52,7 +52,7 @@ module "eks" {
 ## Private with exception of this CIDR block - 196.182.32.48/32
 ## The CIDR value is read from terraform.tfvars
 
-  cluster_endpoint_public_access_cidrs = var.eks_cluster_endpoint_public_access_cidrs
+#  cluster_endpoint_public_access_cidrs = var.eks_cluster_endpoint_public_access_cidrs
   
 ## EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
